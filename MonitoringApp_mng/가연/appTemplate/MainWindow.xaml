@@ -25,7 +25,7 @@
         <Grid Grid.Row="0" Grid.ColumnSpan="3" Background="AliceBlue">
             <TextBlock FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
                 상단바 영역입니다 // 각 그리드 구분선.구분색은 작업시 수정 요망 //
-                마진은 "왼쪽, 위, 오른쪽, 아래"
+                마진은 "왼쪽, 위, 오른쪽, 아래" or "좌우, 상하"
             </TextBlock>
         </Grid>
 
@@ -58,7 +58,7 @@
                 </Grid>
 
                 <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button x:Name="BtnAddCar" Content="입차 현황" Margin="5, 10" FontSize="18"
+                    <Button x:Name="BtnShowCar" Content="입차 현황" Margin="5, 10" FontSize="18"
                     Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Width="150">
                         <Button.ContentTemplate>
                             <DataTemplate>
@@ -70,7 +70,7 @@
                         </Button.ContentTemplate>
                     </Button>
                     <Button x:Name="BtnMngCar" Content="차량 관리" Margin="5, 10" FontSize="18"
-                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Width="150">
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Width="150" Click="BtnMngCar_Click">
                         <Button.ContentTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

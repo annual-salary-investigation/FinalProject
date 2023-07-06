@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using appTemplate.Views;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,5 +26,15 @@ namespace appTemplate
         {
             InitializeComponent();
         }
+
+        #region < 차량 관리 버튼 이벤트 영역 - 자식창 띄우기>
+        private void BtnMngCar_Click(object sender, RoutedEventArgs e)
+        {
+            var mngCarWindow = new MngCar();
+            mngCarWindow.Owner = this;
+            mngCarWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner; // 정중앙에 띄우기
+            mngCarWindow.ShowDialog(); // 모달창
+        }
+        #endregion
     }
 }
