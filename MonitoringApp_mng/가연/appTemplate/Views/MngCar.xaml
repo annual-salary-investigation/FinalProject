@@ -7,15 +7,19 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MngCar" Height="450" Width="800">
+        Title="MngCar" Height="450" Width="800" Loaded="MetroWindow_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
         <!-- 차량 등록 / 삭제 영역 -->
         <Grid Grid.Row="0" Grid.Column="0" Margin="10, 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -23,11 +27,40 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            
+
+            <!-- 차량 정보 입력 영역-->
+            <Label Grid.Row="0" Grid.Column="0" Content="호수" FontSize="14" FontWeight="Bold" Margin="5,15"
+                   HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="5,15" FontSize="12"
+                     mah:TextBoxHelper.Watermark="호수을 입력하세요."
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True" Grid.ColumnSpan="2"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="차량번호" FontSize="14" FontWeight="Bold" Margin="5,15"
+                   HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5,15" FontSize="12"
+                     mah:TextBoxHelper.Watermark="차량번호를 입력하세요."
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True" Grid.ColumnSpan="2"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="전화번호" FontSize="14" FontWeight="Bold" Margin="5,15"
+                   HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="5,15" FontSize="12"
+                     mah:TextBoxHelper.Watermark="전화번호를 입력하세요."
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True" Grid.ColumnSpan="2"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="특이사항" FontSize="14" FontWeight="Bold" Margin="5,15"
+                   HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Margin="5,15" FontSize="12"
+                     mah:TextBoxHelper.Watermark="특이사항 있을 시 기재"
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True" Grid.ColumnSpan="2"/>
+
             <!-- 등록 / 삭제 버튼 영역 -->
-            <StackPanel Grid.Row="4" Grid.Column="0"  Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Grid.Row="4" Grid.Column="0"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
                 <Button x:Name="BtnAddCar" Content="차량 등록" Margin="5, 20" FontSize="12" Width="100"
-                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}">
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}" BorderThickness="0">
                     <Button.ContentTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -39,11 +72,11 @@
                 </Button>
 
                 <Button x:Name="BtnDeleteCar" Content="차량 삭제" Margin="5, 20" FontSize="12" Width="100"
-                    Style="{StaticResource MahApps.Styles.Button.Square.Highlight}">
+                    Style="{StaticResource MahApps.Styles.Button.Square.Highlight}" BorderThickness="0">
                     <Button.ContentTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <iconPacks:PackIconModern Kind="List" Margin="5"/>
+                                <iconPacks:Material Kind="DeleteSweepOutline" Height="27" Width="20"/>
                                 <TextBlock Text="{Binding}" Margin="5"/>
                             </StackPanel>
                         </DataTemplate>
@@ -60,12 +93,15 @@
                       mah:HeaderedControlHelper.HeaderHorizontalContentAlignment="Center"
                       mah:HeaderedControlHelper.HeaderFontFamily="NanumGothic"
                       mah:HeaderedControlHelper.HeaderFontWeight="Bold">
-                <DataGrid x:Name="GrdCarlist" IsReadOnly="True" Style="{StaticResource MahApps.Styles.DataGrid.Azure}">
+                <DataGrid x:Name="GrdCarlist" IsReadOnly="True" Style="{StaticResource MahApps.Styles.DataGrid}" GridLinesVisibility="All" 
+                          ItemsSource="{Binding}" AutoGenerateColumns="False">
+                    <!--AutoGenerateColumns(자동 열 생성) False 해야 원하는 값만 바인딩 됨-->
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="차량번호"/>
-                        <DataGridTextColumn Header="호수"/>
-                        <DataGridTextColumn Header="전화번호"/>
-                        <DataGridTextColumn Header="특이사항"/>
+                        <DataGridTextColumn Binding="{Binding Id}" Header="번호"/>
+                        <DataGridTextColumn Binding="{Binding RoomNum}" Header="호수"/>
+                        <DataGridTextColumn Binding="{Binding CarNum}" Header="차량번호"/>
+                        <DataGridTextColumn Binding="{Binding PhoneNum}" Header="전화번호"/>
+                        <DataGridTextColumn Binding="{Binding SpecialNote}" Header="특이사항"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>

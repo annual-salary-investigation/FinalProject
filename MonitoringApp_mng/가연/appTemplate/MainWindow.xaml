@@ -59,7 +59,7 @@
 
                 <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Button x:Name="BtnShowCar" Content="입차 현황" Margin="5, 10" FontSize="18"
-                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Width="150">
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Width="150" BorderThickness="0">
                         <Button.ContentTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -69,7 +69,7 @@
                             </DataTemplate>
                         </Button.ContentTemplate>
                     </Button>
-                    <Button x:Name="BtnMngCar" Content="차량 관리" Margin="5, 10" FontSize="18"
+                    <Button x:Name="BtnMngCar" Content="차량 관리" Margin="5, 10" FontSize="18" BorderThickness="0"
                     Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Width="150" Click="BtnMngCar_Click">
                         <Button.ContentTemplate>
                             <DataTemplate>
