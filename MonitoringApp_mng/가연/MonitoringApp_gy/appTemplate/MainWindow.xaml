@@ -30,14 +30,15 @@
         </Grid>
         
         <!-- 대시보드 1 날씨 영역 -->
-        <Grid Grid.Row="1" Grid.Column="0" Margin="10,10,5,10">
+
+        <Grid Grid.Row="1" Grid.Column="0" Margin="10,10,5,10" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="239*"/>
                 <RowDefinition Height="275*"/>
             </Grid.RowDefinitions>
-
             <Grid Grid.Row="0">
-                <Image Source="C:/Source/annual-salary-investigation/FinalProject/MonitoringApp_mng/가연/MonitoringApp_gy/image/cloudy-day.png" Width="120"/>
+                <Image Source="Resources/cloudy-day.png" Width="120"
+                    VerticalAlignment="Bottom" Margin="10"/>
             </Grid>
         </Grid>
         
@@ -48,8 +49,9 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             
-            <Grid Grid.Row="0">
-                <Image Source="C:/Source/annual-salary-investigation/FinalProject/MonitoringApp_mng/가연/MonitoringApp_gy/appTemplate/Resources/garage.png" Width="120"/>
+            <Grid Grid.Row="0" Margin="10">
+                <Image Source="Resources/garage.png" Width="120"
+                       VerticalAlignment="Bottom" Margin="10"/>
             </Grid>
 
             <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
