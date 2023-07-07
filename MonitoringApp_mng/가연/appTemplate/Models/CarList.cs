@@ -10,7 +10,7 @@ namespace appTemplate
     {
         public int Id { get; set; }
         public int RoomNum { get; set; }
-        public int CarNum { get; set; }
+        public string CarNum { get; set; }
         public string PhoneNum { get; set; }
         public string SpecialNote { get; set; }
     }

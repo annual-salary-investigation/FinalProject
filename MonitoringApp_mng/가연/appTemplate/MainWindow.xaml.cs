@@ -25,6 +25,7 @@ namespace appTemplate
         public MainWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen; // 스크린 정 중앙에 창 띄우기
         }
 
         #region < 차량 관리 버튼 이벤트 영역 - 자식창 띄우기>
@@ -32,7 +33,7 @@ namespace appTemplate
         {
             var mngCarWindow = new MngCar();
             mngCarWindow.Owner = this;
-            mngCarWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner; // 정중앙에 띄우기
+            mngCarWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner; // 부모창 정중앙에 띄우기
             mngCarWindow.ShowDialog(); // 모달창
         }
         #endregion
